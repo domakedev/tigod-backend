@@ -3,10 +3,16 @@ const Estudiante = require("../models/Estudiante");
 // Resolvers
 const resolvers = {
   Query: {
-    obtenerUsuario: () => "Obteniendo usuario...",
+    obtenerEstudiante: async (_, { id }) => {
+      const estudiante = await Estudiante.findById({ _id: id });
+      if (!estudiante) {
+        throw new Error("No existe ese estudiante");
+      }
+      return estudiante;
+    },
   },
   Mutation: {
-    registrarUsuario: async (_, { input }) => {
+    registrarEstudiante: async (_, { input }) => {
       try {
         const { email } = input;
         // Verificar que estudiante no exista
