@@ -22,7 +22,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    obtenerEstudiante(id: ID!): Estudiante
+    obtenerEstudiante(email: String!): Estudiante
   }
 `;
 

@@ -3,8 +3,8 @@ const Estudiante = require("../models/Estudiante");
 // Resolvers
 const resolvers = {
   Query: {
-    obtenerEstudiante: async (_, { id }) => {
-      const estudiante = await Estudiante.findById({ _id: id });
+    obtenerEstudiante: async (_, { email }) => {
+      const estudiante = await Estudiante.findOne({ email });
       if (!estudiante) {
         throw new Error("No existe ese estudiante");
       }
