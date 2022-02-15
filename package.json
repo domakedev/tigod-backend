@@ -1,0 +1,28 @@
+{
+  "name": "tigod-backend",
+  "version": "1.0.0",
+  "description": "Backend para la app de TIGOD con NodeJs, Mongo, Mongoose, Cloudinary, Apollo GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domakedev/tigod-backend.git"
+  },
+  "author": "Cesar Guevara Cabrera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/domakedev/tigod-backend/issues"
+  },
+  "homepage": "https://github.com/domakedev/tigod-backend#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.3",
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
