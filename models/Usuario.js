@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const StudentSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -13,11 +13,6 @@ const StudentSchema = new mongoose.Schema({
     lowercase: true,
     unique: true,
   },
-  password: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   role: {
     type: String,
     required: true,
@@ -29,6 +24,9 @@ const StudentSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  vocation: {
+    type: String,
+  },
 });
 
-module.exports = mongoose.model("Estudiante", StudentSchema);
+module.exports = mongoose.model("Usuario", UserSchema);
