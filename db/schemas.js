@@ -9,6 +9,7 @@ const typeDefs = gql`
     role: String!
     photo: String
     isOnline: Boolean
+    workPlaces: [String]
   }
 
   input UsuarioInput {
@@ -17,6 +18,7 @@ const typeDefs = gql`
     role: String
     isOnline: Boolean
     photo: String
+    workPlaces: [String]
   }
 
   type Mutation {

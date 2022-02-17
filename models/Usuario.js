@@ -27,6 +27,9 @@ const UserSchema = new mongoose.Schema({
   vocation: {
     type: String,
   },
+  workPlaces: {
+    type: Array,
+  },
 });
 
 module.exports = mongoose.model("Usuario", UserSchema);
