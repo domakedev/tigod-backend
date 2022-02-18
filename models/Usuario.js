@@ -30,6 +30,12 @@ const UserSchema = new mongoose.Schema({
   workPlaces: {
     type: Array,
   },
+  chatUsername: {
+    type: String,
+  },
+  chatUserSecret: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Usuario", UserSchema);

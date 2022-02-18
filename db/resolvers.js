@@ -13,7 +13,6 @@ const resolvers = {
   },
   Mutation: {
     registrarUsuario: async (_, { input }) => {
-      console.log("🚀----------------->", input);
       try {
         const { email } = input;
 
@@ -25,7 +24,6 @@ const resolvers = {
 
         const usuario = new Usuario(input);
         usuario.save();
-        console.log("🚀 ~ file: resolvers.js ~ line 28 ~ usuario", usuario);
         return usuario;
       } catch (error) {
         console.log("🚀 ~ file: resolvers.js ~ line 16 ~ error", error.message);
@@ -33,7 +31,6 @@ const resolvers = {
     },
     actualizarUsuario: async (_, { email, input }, ctx) => {
       try {
-        console.log("🚀 ~ file: resolvers.js ~ line 33 ~ input", input);
 
         const usuario = await Usuario.findOne({ email });
 
@@ -47,6 +44,7 @@ const resolvers = {
           input,
           { new: true }
         );
+       
 
         return usuarioActualizado;
       } catch (error) {
