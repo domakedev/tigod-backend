@@ -24,6 +24,10 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  isAuth: {
+    type: Boolean,
+    default: false,
+  },
   vocation: {
     type: String,
   },

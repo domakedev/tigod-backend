@@ -1,4 +1,6 @@
 const Usuario = require("../models/Usuario");
+require("dotenv").config({ path: "variables.env" });
+const jwt = require("jsonwebtoken");
 
 // Resolvers
 const resolvers = {
@@ -31,9 +33,12 @@ const resolvers = {
     },
     actualizarUsuario: async (_, { email, input }, ctx) => {
       try {
-
         const usuario = await Usuario.findOne({ email });
 
+        // Autorizar usuario
+        if (email !== ctx?.currentUser?.email) {
+          throw new Error("No tienes autorización");
+        }
         //Si el usuario no existe
         if (!usuario) {
           throw new Error("El Usuario no existe");
@@ -44,12 +49,41 @@ const resolvers = {
           input,
           { new: true }
         );
-       
 
         return usuarioActualizado;
       } catch (error) {
         console.log("🚀 ~ file: resolvers.js ~ line 35 ~ error", error);
       }
+    },
+    autenticarUsuario: async (_, { input }, ctx) => {
+      console.log("🚀 ~ file: resolvers.js ~ line 55 ~ ctx", ctx);
+      const { email, isAuth } = input;
+
+      // Si no existe usuario
+      const usuario = await Usuario.findOne({ email });
+      if (!usuario) {
+        throw new Error("El Usuario no existe");
+      }
+
+      // Verificar si esta autenticado con auth0
+      if (!isAuth) {
+        throw new Error("El usuario no esta autenticado");
+      }
+
+      const userToToken = {
+        email: usuario.email,
+      };
+
+      const token = jwt.sign(userToToken, process.env.SECRET_JWT, {
+        expiresIn: "24h", // 1 hora en ms
+      });
+
+      const dataToSend = {
+        user: usuario,
+        token: token,
+      };
+
+      return dataToSend;
     },
   },
 };

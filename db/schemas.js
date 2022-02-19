@@ -12,6 +12,16 @@ const typeDefs = gql`
     workPlaces: [String]
     chatUsername: String
     chatUserSecret: String
+    isAuth: Boolean
+  }
+
+  type Token {
+    token: String
+  }
+
+  type LoginPayload {
+    user: Usuario
+    token: String!
   }
 
   input UsuarioInput {
@@ -23,11 +33,13 @@ const typeDefs = gql`
     workPlaces: [String]
     chatUsername: String
     chatUserSecret: String
+    isAuth: Boolean
   }
 
   type Mutation {
     registrarUsuario(input: UsuarioInput): Usuario
     actualizarUsuario(email: String, input: UsuarioInput): Usuario
+    autenticarUsuario(input: UsuarioInput): LoginPayload
   }
 
   type Query {
