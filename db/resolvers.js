@@ -30,13 +30,14 @@ const resolvers = {
         // Verificar que Usuario no exista
         const existeUsuario = await Usuario.findOne({ email });
         if (existeUsuario) {
-          throw new Error("El Usuario ya existe");
+          throw new Error("El Usuario ya existe 33");
         }
 
         const usuario = new Usuario(input);
         usuario.save();
         return usuario;
       } catch (error) {
+        throw new Error("El Usuario ya existe 40");
         console.log("🚀 ~ file: resolvers.js ~ line 16 ~ error", error.message);
       }
     },
@@ -62,7 +63,6 @@ const resolvers = {
         return usuarioActualizado;
       } catch (error) {
         throw new Error("Error desde 57 no tienes autorizacion");
-        console.log("🚀 ~ file: resolvers.js ~ line 35 ~ error", error);
       }
     },
     autenticarUsuario: async (_, { input }, ctx) => {
