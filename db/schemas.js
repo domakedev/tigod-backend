@@ -13,10 +13,15 @@ const typeDefs = gql`
     chatUsername: String
     chatUserSecret: String
     isAuth: Boolean
+    vocation: String
   }
 
   type Token {
     token: String
+  }
+
+  type Usuarios {
+    usuario: Usuario
   }
 
   type LoginPayload {
@@ -34,6 +39,7 @@ const typeDefs = gql`
     chatUsername: String
     chatUserSecret: String
     isAuth: Boolean
+    vocation: String
   }
 
   type Mutation {
@@ -44,6 +50,7 @@ const typeDefs = gql`
 
   type Query {
     obtenerUsuario(email: String!): Usuario
+    obtenerUsuarios: [Usuario]
   }
 `;
 

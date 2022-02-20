@@ -12,6 +12,15 @@ const resolvers = {
       }
       return usuario;
     },
+    obtenerUsuarios: async () => {
+      try {
+        const usuarios = await Usuario.find();
+
+        return usuarios;
+      } catch (error) {
+        console.log("🚀 ~ file: resolvers.js ~ line 23 ~ error", error);
+      }
+    },
   },
   Mutation: {
     registrarUsuario: async (_, { input }) => {
@@ -52,6 +61,7 @@ const resolvers = {
 
         return usuarioActualizado;
       } catch (error) {
+        throw new Error("Error desde 57 no tienes autorizacion");
         console.log("🚀 ~ file: resolvers.js ~ line 35 ~ error", error);
       }
     },
