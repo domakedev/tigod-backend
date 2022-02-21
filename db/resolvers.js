@@ -38,7 +38,6 @@ const resolvers = {
         return usuario;
       } catch (error) {
         throw new Error("El Usuario ya existe 40");
-        console.log("🚀 ~ file: resolvers.js ~ line 16 ~ error", error.message);
       }
     },
     actualizarUsuario: async (_, { email, input }, ctx) => {
@@ -66,7 +65,6 @@ const resolvers = {
       }
     },
     autenticarUsuario: async (_, { input }, ctx) => {
-      console.log("🚀 ~ file: resolvers.js ~ line 55 ~ ctx", ctx);
       const { email, isAuth } = input;
 
       // Si no existe usuario

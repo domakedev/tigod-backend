@@ -14,10 +14,23 @@ const typeDefs = gql`
     chatUserSecret: String
     isAuth: Boolean
     vocation: String
+    universityInterestedIn: [String]
+    goals: [String]
+    qualities: [String]
+    profession: String
+    actualWorkPlace: String
   }
 
   type Token {
     token: String
+  }
+
+  type Universidad {
+    university: String
+  }
+
+  input UniversidadInput {
+    university: String
   }
 
   type Usuarios {
@@ -40,6 +53,11 @@ const typeDefs = gql`
     chatUserSecret: String
     isAuth: Boolean
     vocation: String
+    universityInterestedIn: [String]
+    goals: [String]
+    qualities: [String]
+    profession: String
+    actualWorkPlace: String
   }
 
   type Mutation {

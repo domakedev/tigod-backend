@@ -30,15 +30,37 @@ const UserSchema = new mongoose.Schema({
   },
   vocation: {
     type: String,
+    default: "",
   },
   workPlaces: {
     type: Array,
+    default: [],
   },
   chatUsername: {
     type: String,
   },
   chatUserSecret: {
     type: String,
+  },
+  profession: {
+    type: String,
+    default: "",
+  },
+  actualWorkPlace: {
+    type: String,
+    default: "",
+  },
+  universityInterestedIn: {
+    type: Array,
+    default: [],
+  },
+  goals: {
+    type: Array,
+    default: [],
+  },
+  qualities: {
+    type: Array,
+    default: [],
   },
 });
 
