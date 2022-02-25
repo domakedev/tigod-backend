@@ -19,6 +19,21 @@ const typeDefs = gql`
     qualities: [String]
     profession: String
     actualWorkPlace: String
+    experiences: [Experience]
+  }
+
+  type Experience {
+    cargo: String
+    empresa: String
+    inicio: String
+    fin: String
+  }
+
+  input ExperienceInput {
+    cargo: String
+    empresa: String
+    inicio: String
+    fin: String
   }
 
   type Token {
@@ -58,6 +73,7 @@ const typeDefs = gql`
     qualities: [String]
     profession: String
     actualWorkPlace: String
+    experiences: [ExperienceInput]
   }
 
   type Mutation {

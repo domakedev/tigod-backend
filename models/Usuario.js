@@ -62,6 +62,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  experiences: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = mongoose.model("Usuario", UserSchema);
